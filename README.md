@@ -144,7 +144,9 @@ Están en **`index.html`**. Buscá la sección (por ejemplo `NOSOTROS`) y cambi�
 
 ## 🌐 Publicación (GitHub Pages)
 
-Cuando la página esté publicada, abrí `index.html` y en las etiquetas `og:image` y `og:url` cambiá `TU-USUARIO` por tu usuario de GitHub. Así WhatsApp muestra bien la imagen al compartir el link.
+La página está publicada en **https://mattiiasbernar2006-ship-it.github.io/altos-del-mate/**
+
+Las etiquetas `og:image` y `og:url` de `index.html` apuntan a esa dirección, y así WhatsApp muestra la imagen al compartir el link. Si algún día usás un dominio propio, actualizalas.
 
 Para actualizar la página publicada, después de hacer cambios:
 
