@@ -2,6 +2,6 @@
   <!-- Imagen PROVISORIA: reemplazala por una foto real -->
   <rect width="400" height="400" fill="#d5dfc0"/>
   <path d="M140 110h120l10 180h-140z" fill="#3f5a2e"/><rect x="140" y="100" width="120" height="16" fill="#2b3f1f"/><path d="M200 160c-30 20-30 60 0 80 30-20 30-60 0-80z" fill="#c9a227"/>
-  <text x="200" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#2e2219">Yerba orgánica 1 kg</text>
-  <text x="200" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5e4d40">FOTO PROVISORIA</text>
+  <text x="200" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#2e2219"><tspan x="200" dy="0">Yerba orgánica 1 kg</tspan></text>
+  <text x="200" y="378" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5e4d40">FOTO PROVISORIA</text>
 </svg>

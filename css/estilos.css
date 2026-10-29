@@ -208,7 +208,7 @@ a { color: var(--verde-yerba); }
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .tarjeta:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(62, 40, 20, 0.16); }
-.tarjeta__imagen { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--crema-oscura); }
+.tarjeta__imagen { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; background: var(--crema-oscura); }
 .tarjeta__cuerpo { padding: 0.8rem 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
 .tarjeta__categoria {
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;

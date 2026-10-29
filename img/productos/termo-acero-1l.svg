@@ -2,6 +2,6 @@
   <!-- Imagen PROVISORIA: reemplazala por una foto real -->
   <rect width="400" height="400" fill="#d9e0cc"/>
   <rect x="175" y="70" width="50" height="24" rx="6" fill="#3f5a2e"/><rect x="160" y="94" width="80" height="196" rx="20" fill="#7a8a7a"/><rect x="160" y="150" width="80" height="12" fill="#5e6b5e"/>
-  <text x="200" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#2e2219">Termo de acero 1 litro</text>
-  <text x="200" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5e4d40">FOTO PROVISORIA</text>
+  <text x="200" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#2e2219"><tspan x="200" dy="0">Termo de acero 1 litro</tspan></text>
+  <text x="200" y="378" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5e4d40">FOTO PROVISORIA</text>
 </svg>
