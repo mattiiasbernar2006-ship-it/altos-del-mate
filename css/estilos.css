@@ -1,0 +1,331 @@
+/* =========================================================
+   ESTILOS DE ALTOS DEL MATE
+   Mobile-first: primero el diseño para celular, y más abajo
+   (en los @media) los ajustes para pantallas grandes.
+   ========================================================= */
+
+/* ---------- 1. VARIABLES: colores y tipografías ----------
+   Para cambiar un color en TODA la página, cambialo acá. */
+:root {
+  --verde-yerba: #3f5a2e;      /* verde principal (botones, detalles) */
+  --verde-oscuro: #2b3f1f;     /* verde para fondos oscuros */
+  --cuero: #6b4226;            /* marrón cuero (títulos, logo) */
+  --tierra: #a8643a;           /* terracota (acentos) */
+  --dorado: #c9a227;           /* dorado tipo bombilla de alpaca */
+  --crema: #f8f1e4;            /* fondo general */
+  --crema-oscura: #efe3cd;     /* fondo de secciones alternadas */
+  --blanco: #fffdf8;           /* fondo de tarjetas */
+  --texto: #2e2219;            /* texto principal (casi negro, cálido) */
+  --texto-suave: #5e4d40;      /* texto secundario */
+  --whatsapp: #1f8f4e;         /* verde WhatsApp (oscurecido para buen contraste) */
+
+  --fuente-titulos: "Fraunces", Georgia, serif;
+  --fuente-texto: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radio: 14px;               /* qué tan redondeadas son las esquinas */
+  --sombra: 0 4px 18px rgba(62, 40, 20, 0.10);
+  --alto-encabezado: 64px;
+}
+
+/* ---------- 2. BASE ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;                         /* desplazamiento suave al tocar el menú */
+  scroll-padding-top: var(--alto-encabezado);      /* que el encabezado fijo no tape los títulos */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--crema);
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.15;
+  color: var(--cuero);
+  margin: 0 0 0.6em;
+}
+h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); text-align: center; }
+
+a { color: var(--verde-yerba); }
+
+/* Contorno visible al navegar con teclado (accesibilidad) */
+:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; }
+
+/* Oculta algo a la vista pero lo deja para lectores de pantalla */
+.solo-lectores {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.saltar {
+  position: absolute; left: 1rem; top: -100px; z-index: 200;
+  background: var(--verde-yerba); color: #fff; padding: 0.6rem 1rem; border-radius: 8px;
+}
+.saltar:focus { top: 1rem; }
+
+.contenedor { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1rem; }
+
+/* ---------- 3. BOTONES ---------- */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 48px;                  /* tamaño cómodo para el dedo */
+  padding: 0.7rem 1.4rem;
+  border: 2px solid transparent; border-radius: 999px;
+  background: var(--verde-yerba); color: #fff;
+  font: 700 1rem var(--fuente-texto);
+  text-decoration: none; cursor: pointer;
+  transition: transform 0.15s, background-color 0.15s;
+}
+.boton:hover { background: var(--verde-oscuro); transform: translateY(-2px); }
+.boton--grande { min-height: 54px; padding: 0.8rem 1.8rem; font-size: 1.05rem; }
+.boton--ancho { width: 100%; }
+.boton--whatsapp { background: var(--whatsapp); }
+.boton--whatsapp:hover { background: #17713d; }
+.boton--claro { background: transparent; border-color: var(--crema); color: var(--crema); }
+.boton--claro:hover { background: var(--crema); color: var(--verde-oscuro); }
+
+/* ---------- 4. ENCABEZADO FIJO ---------- */
+.encabezado {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--alto-encabezado);
+  background: rgba(248, 241, 228, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--crema-oscura);
+}
+.encabezado__interior { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+
+.logo {
+  font-family: var(--fuente-titulos); font-weight: 700; font-size: 1.5rem;
+  color: var(--cuero); text-decoration: none; margin: 0;
+}
+.logo span { color: var(--verde-yerba); }
+
+/* Botón hamburguesa (las 3 rayitas) */
+.menu-boton {
+  width: 48px; height: 48px; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 6px;
+  background: none; border: 0; cursor: pointer; padding: 0;
+}
+.menu-boton span {
+  width: 26px; height: 3px; border-radius: 3px; background: var(--cuero);
+  transition: transform 0.25s, opacity 0.25s;
+}
+/* Cuando el menú está abierto, las rayitas forman una X */
+.menu-boton[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.menu-boton[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-boton[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* En celular, el menú es un panel que baja desde el encabezado */
+.menu {
+  position: absolute; top: var(--alto-encabezado); left: 0; right: 0;
+  display: none; flex-direction: column;
+  background: var(--crema); box-shadow: var(--sombra);
+  padding: 0.5rem 1rem 1rem;
+}
+.menu.abierto { display: flex; }
+.menu a {
+  padding: 0.9rem 0.5rem; font-weight: 700; font-size: 1.1rem;
+  color: var(--texto); text-decoration: none; border-bottom: 1px solid var(--crema-oscura);
+}
+.menu a:last-child { border-bottom: 0; }
+
+/* ---------- 5. PORTADA (HERO) ---------- */
+.hero {
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: calc(var(--alto-encabezado) + 2rem) 0 3rem;
+  /* Fondo: degradado verde yerba con un "brillo" cálido */
+  background:
+    radial-gradient(circle at 80% 20%, rgba(201, 162, 39, 0.28), transparent 55%),
+    linear-gradient(160deg, var(--verde-oscuro), var(--verde-yerba) 60%, #5a6b2f);
+  color: var(--crema);
+  text-align: center;
+}
+.hero__interior { max-width: 760px; }
+.hero h1 { color: var(--crema); font-size: clamp(2.5rem, 10vw, 4.5rem); }
+.hero__previo {
+  text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700;
+  font-size: 0.85rem; color: var(--dorado); margin: 0 0 1rem;
+}
+.hero__frase { font-size: 1.15rem; margin: 0 auto 2rem; max-width: 34ch; opacity: 0.95; }
+.hero .boton { background: var(--dorado); color: var(--texto); }
+.hero .boton:hover { background: #e0b935; }
+
+/* ---------- 6. SECCIONES ---------- */
+.seccion { padding: 4rem 0; }
+.seccion--clara { background: var(--crema-oscura); }
+.seccion--oscura { background: var(--verde-oscuro); color: var(--crema); }
+.seccion--oscura h2 { color: var(--crema); }
+
+/* ---------- 7. BUSCADOR Y FILTROS ---------- */
+.buscador { max-width: 520px; margin: 0 auto 1.2rem; }
+.buscador input {
+  width: 100%; min-height: 52px; padding: 0.7rem 1.2rem;
+  border: 2px solid #d6c5a6; border-radius: 999px; background: var(--blanco);
+  font: inherit; color: var(--texto);
+}
+.buscador input:focus { border-color: var(--verde-yerba); outline: none; }
+
+/* En celular los filtros se deslizan de costado */
+.filtros {
+  display: flex; gap: 0.5rem; overflow-x: auto;
+  padding: 0.3rem 0.2rem 0.8rem; margin-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+.filtro {
+  flex: 0 0 auto; min-height: 44px; padding: 0.5rem 1.1rem;
+  border: 2px solid var(--verde-yerba); border-radius: 999px;
+  background: transparent; color: var(--verde-yerba);
+  font: 700 0.95rem var(--fuente-texto); cursor: pointer;
+}
+.filtro:hover { background: rgba(63, 90, 46, 0.1); }
+.filtro[aria-pressed="true"] { background: var(--verde-yerba); color: #fff; }
+
+.resultado { text-align: center; color: var(--texto-suave); margin: 0 0 1rem; font-size: 0.95rem; }
+
+/* ---------- 8. GRILLA Y TARJETAS DE PRODUCTO ---------- */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);   /* 2 columnas en celular */
+  gap: 0.9rem;
+}
+
+.tarjeta {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--blanco); border: 0; border-radius: var(--radio);
+  box-shadow: var(--sombra); overflow: hidden;
+  padding: 0; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tarjeta:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(62, 40, 20, 0.16); }
+.tarjeta__imagen { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--crema-oscura); }
+.tarjeta__cuerpo { padding: 0.8rem 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
+.tarjeta__categoria {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--tierra); font-weight: 700;
+}
+.tarjeta__nombre {
+  font-family: var(--fuente-titulos); font-size: 1.05rem; font-weight: 600;
+  color: var(--texto); line-height: 1.25;
+}
+.tarjeta__precio { margin-top: auto; padding-top: 0.3rem; font-weight: 700; color: var(--verde-yerba); font-size: 1.05rem; }
+
+.etiqueta-stock {
+  position: absolute; top: 0.6rem; left: 0.6rem;
+  background: var(--texto); color: var(--crema);
+  font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.tarjeta--sin-stock .tarjeta__imagen { filter: grayscale(0.7); opacity: 0.75; }
+
+.sin-resultados { grid-column: 1 / -1; text-align: center; color: var(--texto-suave); padding: 2rem 0; }
+
+/* ---------- 9. NOSOTROS ---------- */
+.nosotros { max-width: 720px; text-align: center; }
+.nosotros p { color: var(--texto-suave); font-size: 1.1rem; }
+
+/* ---------- 10. CÓMO COMPRAR ---------- */
+.pasos { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.paso {
+  background: var(--blanco); border-radius: var(--radio); box-shadow: var(--sombra);
+  padding: 1.5rem; text-align: center;
+}
+.paso h3 { margin-bottom: 0.3rem; }
+.paso p { margin: 0; color: var(--texto-suave); }
+.paso__numero {
+  display: inline-grid; place-items: center; width: 48px; height: 48px; margin-bottom: 0.8rem;
+  border-radius: 50%; background: var(--verde-yerba); color: #fff;
+  font: 700 1.3rem var(--fuente-titulos);
+}
+
+/* ---------- 11. CONTACTO ---------- */
+.contacto { text-align: center; }
+.contacto p { max-width: 40ch; margin: 0 auto 1.8rem; }
+.contacto__botones { display: flex; flex-direction: column; gap: 0.8rem; max-width: 320px; margin: 0 auto; }
+
+/* ---------- 12. PIE DE PÁGINA ---------- */
+.pie { background: var(--texto); color: #d9cbb5; padding: 2.5rem 0 6rem; text-align: center; font-size: 0.95rem; }
+.pie__interior p { margin: 0.4rem 0; }
+.logo--pie { color: var(--crema); }
+.logo--pie span { color: var(--dorado); }
+.pie a { color: var(--crema); }
+
+/* ---------- 13. BOTÓN FLOTANTE DE WHATSAPP ---------- */
+.whatsapp-flotante {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 90;
+  width: 60px; height: 60px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--whatsapp); color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+.whatsapp-flotante:hover { transform: scale(1.08); }
+.whatsapp-flotante svg { width: 34px; height: 34px; }
+
+/* ---------- 14. MODAL (detalle del producto) ---------- */
+.modal {
+  width: min(94vw, 760px); max-height: 92vh; padding: 0;
+  border: 0; border-radius: var(--radio); background: var(--blanco); color: var(--texto);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.modal::backdrop { background: rgba(30, 20, 12, 0.6); }   /* fondo oscuro detrás */
+.modal__imagen { width: 100%; aspect-ratio: 1 / 1; max-height: 50vh; object-fit: cover; background: var(--crema-oscura); }
+.modal__cuerpo { padding: 1.3rem 1.3rem 1.5rem; }
+.modal__cuerpo h3 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+.modal__categoria { margin: 0 0 0.3rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--tierra); }
+.modal__precio { font-size: 1.4rem; font-weight: 700; color: var(--verde-yerba); margin: 0 0 0.8rem; }
+.modal__stock { display: inline-block; margin-left: 0.5rem; vertical-align: middle; font-size: 0.85rem; background: var(--texto); color: var(--crema); padding: 0.2rem 0.6rem; border-radius: 999px; }
+.modal__cuerpo > p:last-of-type { color: var(--texto-suave); margin-bottom: 1.3rem; }
+.modal__cerrar {
+  position: absolute; top: 0.6rem; right: 0.6rem; z-index: 1;
+  width: 48px; height: 48px; border-radius: 50%; border: 0;
+  background: rgba(255, 253, 248, 0.92); color: var(--texto);
+  font-size: 2rem; line-height: 1; cursor: pointer; box-shadow: var(--sombra);
+}
+
+/* =========================================================
+   PANTALLAS MÁS GRANDES
+   ========================================================= */
+
+/* Tablets (desde 640px de ancho) */
+@media (min-width: 640px) {
+  .grilla { grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+  .pasos { grid-template-columns: repeat(3, 1fr); }
+  .contacto__botones { flex-direction: row; max-width: none; justify-content: center; }
+  .filtros { flex-wrap: wrap; justify-content: center; overflow: visible; }
+}
+
+/* Computadoras (desde 900px de ancho) */
+@media (min-width: 900px) {
+  /* El menú hamburguesa desaparece y el menú se muestra en línea */
+  .menu-boton { display: none; }
+  .menu {
+    position: static; display: flex; flex-direction: row; gap: 0.5rem;
+    background: none; box-shadow: none; padding: 0;
+  }
+  .menu a { border: 0; padding: 0.5rem 0.9rem; font-size: 1rem; border-radius: 999px; }
+  .menu a:hover { background: var(--crema-oscura); }
+
+  .grilla { grid-template-columns: repeat(4, 1fr); }
+  .seccion { padding: 5.5rem 0; }
+
+  /* En compu, el modal muestra foto a la izquierda y texto a la derecha */
+  .modal[open] { display: grid; grid-template-columns: 1fr 1fr; }
+  .modal__imagen { height: 100%; max-height: none; }
+  .modal__cuerpo { padding: 2.5rem 2rem; align-self: center; }
+}
+
+/* Si la persona pidió "reducir movimiento" en su sistema, sacamos animaciones */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
