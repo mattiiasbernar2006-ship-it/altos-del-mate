@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- lang="es-AR": le avisa al navegador y a Google que la página está en español de Argentina -->
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Hace que la página se adapte al ancho del celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ====== SEO básico: lo que muestra Google ====== -->
+  <title>Altos del mate | Mates, bombillas, termos y yerbas</title>
+  <meta name="description" content="Altos del mate: mates de calabaza, madera, vidrio, cerámica y acero, bombillas, materas, termos, yerbas y kits. Envíos a todo el país. Consultanos por WhatsApp.">
+  <meta name="theme-color" content="#3f5a2e">
+
+  <!-- ====== Open Graph: cómo se ve el link al compartirlo por WhatsApp/Facebook ======
+       IMPORTANTE: cuando publiques la página, cambiá TU-USUARIO por tu usuario de GitHub
+       (WhatsApp necesita la dirección completa de la imagen). -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Altos del mate">
+  <meta property="og:title" content="Altos del mate | Todo para tu mate">
+  <meta property="og:description" content="Mates, bombillas, materas, termos, yerbas y kits. Envíos a todo el país.">
+  <meta property="og:image" content="https://TU-USUARIO.github.io/altos-del-mate/img/og-imagen.png">
+  <meta property="og:url" content="https://TU-USUARIO.github.io/altos-del-mate/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Ícono de la pestaña del navegador -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- ====== Tipografías de Google Fonts ======
+       Fraunces: títulos con personalidad. Nunito Sans: texto fácil de leer. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Nuestros estilos -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Enlace oculto para quienes navegan con teclado o lector de pantalla -->
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ================= 1. ENCABEZADO FIJO ================= -->
+  <header class="encabezado">
+    <div class="contenedor encabezado__interior">
+      <a href="#inicio" class="logo">Altos <span>del mate</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en celular -->
+      <button class="menu-boton" id="menu-boton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ================= 2. PORTADA (HERO) ================= -->
+    <section class="hero" id="inicio">
+      <div class="contenedor hero__interior">
+        <p class="hero__previo">Hecho con amor por el mate</p>
+        <h1>Cada mate,<br>una buena ronda.</h1>
+        <p class="hero__frase">Mates, bombillas, termos y yerbas elegidos uno por uno. Envíos a todo el país.</p>
+        <a href="#productos" class="boton boton--grande">Ver productos</a>
+      </div>
+    </section>
+
+    <!-- ================= 3. DESTACADOS ================= -->
+    <section class="seccion" id="destacados" aria-labelledby="titulo-destacados">
+      <div class="contenedor">
+        <h2 id="titulo-destacados">Los más elegidos</h2>
+        <!-- JavaScript (app.js) llena esta grilla con los productos destacados -->
+        <div class="grilla" id="grilla-destacados"></div>
+      </div>
+    </section>
+
+    <!-- ================= 4. CATÁLOGO COMPLETO ================= -->
+    <section class="seccion seccion--clara" id="productos" aria-labelledby="titulo-productos">
+      <div class="contenedor">
+        <h2 id="titulo-productos">Catálogo</h2>
+
+        <div class="buscador">
+          <label for="buscador" class="solo-lectores">Buscar productos por nombre</label>
+          <input type="search" id="buscador" placeholder="Buscá un producto… (ej: termo)" autocomplete="off">
+        </div>
+
+        <!-- Los botones de categoría los crea app.js a partir de los productos -->
+        <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría"></div>
+
+        <!-- aria-live: avisa a los lectores de pantalla cuando cambian los resultados -->
+        <p class="resultado" id="resultado" aria-live="polite"></p>
+        <div class="grilla" id="grilla-catalogo"></div>
+      </div>
+    </section>
+
+    <!-- ================= 5. NOSOTROS ================= -->
+    <section class="seccion" id="nosotros" aria-labelledby="titulo-nosotros">
+      <div class="contenedor nosotros">
+        <h2 id="titulo-nosotros">Nosotros</h2>
+        <!-- Texto provisorio: editalo con tu historia -->
+        <p>Altos del mate nació de una costumbre de toda la vida: juntarnos alrededor de un buen mate. Somos un emprendimiento familiar que elige cada producto pensando en cómo lo vas a disfrutar todos los días.</p>
+        <p>Trabajamos con artesanos y proveedores de confianza para ofrecerte mates, bombillas, termos y yerbas de calidad, a precios justos y con atención personalizada.</p>
+      </div>
+    </section>
+
+    <!-- ================= 6. CÓMO COMPRAR ================= -->
+    <section class="seccion seccion--clara" id="como-comprar" aria-labelledby="titulo-comprar">
+      <div class="contenedor">
+        <h2 id="titulo-comprar">Cómo comprar</h2>
+        <ol class="pasos">
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">1</span>
+            <h3>Elegís</h3>
+            <p>Mirá el catálogo y encontrá lo que más te guste.</p>
+          </li>
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">2</span>
+            <h3>Nos escribís</h3>
+            <p>Tocá "Consultar por WhatsApp" y te respondemos enseguida.</p>
+          </li>
+          <li class="paso">
+            <span class="paso__numero" aria-hidden="true">3</span>
+            <h3>Coordinamos</h3>
+            <p>Arreglamos juntos el pago y el envío a cualquier parte del país.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 7. CONTACTO ================= -->
+    <section class="seccion seccion--oscura" id="contacto" aria-labelledby="titulo-contacto">
+      <div class="contenedor contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <p>¿Tenés dudas? Escribinos, te respondemos rápido. Hacemos envíos a todo el país.</p>
+        <!-- Los href de estos botones los completa app.js con los datos de config.js -->
+        <div class="contacto__botones">
+          <a class="boton boton--whatsapp boton--grande" id="contacto-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="boton boton--claro boton--grande" id="contacto-email" href="#">Email</a>
+          <a class="boton boton--claro boton--grande" id="contacto-instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 8. PIE DE PÁGINA ================= -->
+  <footer class="pie">
+    <div class="contenedor pie__interior">
+      <p class="logo logo--pie">Altos <span>del mate</span></p>
+      <p class="pie__redes">
+        <a id="pie-instagram" href="#" target="_blank" rel="noopener">Instagram</a> ·
+        <a id="pie-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+      <!-- El año lo pone app.js automáticamente -->
+      <p class="pie__copy">© <span id="anio"></span> Altos del mate. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ================= 9. BOTÓN FLOTANTE DE WHATSAPP ================= -->
+  <a class="whatsapp-flotante" id="whatsapp-flotante" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.9-1.8-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-11 10.9zm6-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  </a>
+
+  <!-- ================= MODAL (detalle del producto) =================
+       <dialog> es una ventana emergente nativa del navegador. app.js la llena y la abre. -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-nombre">
+    <button class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar detalle">×</button>
+    <img class="modal__imagen" id="modal-imagen" src="" alt="">
+    <div class="modal__cuerpo">
+      <p class="modal__categoria" id="modal-categoria"></p>
+      <h3 id="modal-nombre"></h3>
+      <p class="modal__precio" id="modal-precio"></p>
+      <p id="modal-descripcion"></p>
+      <a class="boton boton--whatsapp boton--grande boton--ancho" id="modal-whatsapp" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </dialog>
+
+  <!-- ====== Scripts: el ORDEN importa ======
+       1) config (datos de contacto)  2) productos (los datos)
+       3) datos (función que los obtiene)  4) app (la lógica de la página) -->
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

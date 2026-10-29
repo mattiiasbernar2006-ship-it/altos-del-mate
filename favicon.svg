@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon: un mate simple con bombilla -->
+  <rect x="38" y="4" width="5" height="26" rx="2.5" transform="rotate(18 40 17)" fill="#c9a227"/>
+  <path d="M14 24h36c0 18-6 34-18 34S14 42 14 24z" fill="#6b4226"/>
+  <ellipse cx="32" cy="24" rx="18" ry="5" fill="#3f5a2e"/>
+</svg>
